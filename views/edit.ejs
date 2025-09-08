@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Blog</title>
+    <style>
+      body {
+        font-family: "Georgia", serif;
+        background: #fafafa;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      header {
+        background: #2c3e50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: fixed; /* stays at the top */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 100px auto 30px; /* add top margin so content is not hidden behind header */
+        background: #fff;
+        padding: 25px 40px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 24px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea,
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .current-image {
+        margin: 10px 0;
+      }
+
+      .current-image img {
+        max-width: 200px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+
+      button {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #2980b9;
+      }
+
+      a.back-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #3498db;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      a.back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Blog</h1>
+    </header>
+
+    <div class="container">
+      <h2>Edit Blog Post</h2>
+      <form
+        action="/posts/<%= post._id %>?_method=PUT"
+        method="POST"
+      >
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= post.title %>" required />
+
+        <label>Author:</label>
+        <input type="text" name="author" value="<%= post.author %>" required />
+
+        <label>Content:</label>
+        <textarea name="content" rows="5" required><%= post.content %></textarea
+        >
+
+        <label>Upload New Image:</label>
+        <input class="current-image" type="text" name="image" placeholder="Enter The Link" value="<%=post.image%>" /><br>
+
+        <button type="submit">Update Post</button>
+      </form>
+
+      <a href="/posts" class="back-link">← Back to Blog</a>
+    </div>
+  </body>
+</html>
