@@ -87,6 +87,15 @@ app.delete("/posts/:id", async (req, res) => {
     res.redirect("/posts");
 });
 
+//contact
+app.get("/contact", (req, res) => {
+    res.render("contact");
+});
+
+//about
+app.get("/about", (req, res) => {
+    res.render("about");
+})
 
 app.listen(1080, () => {
     console.log(`Server are listening at ${port}`);
