@@ -26,55 +26,39 @@
       </div>
     </nav>
 
-    <div class="container">
-      <h1>Contact Us</h1>
-      <p>
-        We'd love to hear from you! Send us a message and we'll respond as soon
-        as possible.
-      </p>
-      <form>
-        <label for="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          style="width: 300px; padding: 8px"
-        />
+    <div class="container contact-section">
+      <div class="contact-image">
+        <img src="/images/contact-us.avif" alt="Contact Us" />
+      </div>
+      <div class="contact-form">
+        <h1>Contact Us</h1>
+        <p>
+          We'd love to hear from you! Send us a message and we'll respond as soon
+          as possible.
+        </p>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
 
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          style="width: 400px; padding: 8px"
-        />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
 
-        <label for="phone">Phone Number:</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          pattern="[0-9]{10}"
-          placeholder="xxx-xxx-xxx"
-          style="width: 300px; padding: 8px"
-          required
-        />
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10}"
+            placeholder="xxx-xxx-xxx"
+            required
+          />
 
-        <label for="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          style="width: 400px; padding: 8px"
-        ></textarea>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
 
-        <br />
-
-        <button type="submit">Send Message</button>
-      </form>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
