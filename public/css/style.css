@@ -200,9 +200,9 @@ body {
 
 /* Container */
 .container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
+  max-width: 100%;
+  margin: 10px;
+  padding: 10px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -876,6 +876,83 @@ form button:hover {
   background: #1a252f;
 }
 
+/* Subscribe Section Styles */
+.subscribe-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.subscribe-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #f8f9fa;
+}
+
+.subscribe-description {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #d1d5db;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.subscribe-input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.subscribe-button {
+  background-color: #8e44ad; /* Updated to purple */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #732d91;
+}
+
+/* Posts Grid Adjustments */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+  justify-items: stretch;
+}
+
+.card {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-image {
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-hero-content h1 {
@@ -929,9 +1006,5 @@ form button:hover {
 
   .contact-form {
     padding: 0;
-  }
-
-  .contact-form h1 {
-    font-size: 2rem;
   }
 }
