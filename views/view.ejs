@@ -7,30 +7,68 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <div class="blog-view">
-      <div class="blog-hero">
+    <div class="blog-container" style="display: flex; max-width: 1200px; margin: 50px auto; gap: 30px;">
+      <!-- Main Content -->
+      <div class="main-content" style="flex: 3; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1);">
+        <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #2c3e50;"><%= post.title %></h1>
+        <p class="author" style="color: #777; font-style: italic; margin-bottom: 20px;">By <%= post.author %> | <%= post.date.toDateString() %></p>
+
         <% if (post.image) { %>
-        <img src="<%= post.image %>" alt="blog image" class="blog-hero-img" />
+        <div style="margin-bottom: 30px;">
+          <img src="<%= post.image %>" alt="blog image" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" />
+        </div>
         <% } %>
-      </div>
-      <div class="blog-content">
-        <h1><%= post.title %></h1>
-        <p class="author">By <%= post.author %></p>
-        <p><%= post.content %></p>
+
+        <div class="blog-content" style="font-size: 1.1rem; line-height: 1.6; color: #444; margin-bottom: 20px;">
+          <%= post.content %>
+        </div>
+
+        <!-- Additional Images -->
+        <div style="margin: 20px 0;">
+          <img src="/images/contact-us.avif" alt="related image" style="width: 100%; max-height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" />
+          <p style="font-size: 0.9rem; color: #777; text-align: center;">Related Image</p>
+        </div>
+
+        <!-- Social Share Icons -->
+        <div style="text-align: center; margin: 30px 0;">
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">Share this post</h3>
+          <div style="display: flex; justify-content: center; gap: 15px;">
+            <a href="https://twitter.com/intent/tweet?text=<%= encodeURIComponent(post.title) %>&url=<%= encodeURIComponent('http://localhost:1080/posts/' + post._id + '/views') %>" target="_blank" style="color: #1da1f2; font-size: 1.5rem; text-decoration: none; padding: 10px; border-radius: 50%; background: rgba(29, 161, 242, 0.1); transition: background 0.3s;">𝕏</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent('http://localhost:1080/posts/' + post._id + '/views') %>" target="_blank" style="color: #1877f2; font-size: 1.5rem; text-decoration: none; padding: 10px; border-radius: 50%; background: rgba(24, 119, 242, 0.1); transition: background 0.3s;">f</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= encodeURIComponent('http://localhost:1080/posts/' + post._id + '/views') %>" target="_blank" style="color: #0077b5; font-size: 1.5rem; text-decoration: none; padding: 10px; border-radius: 50%; background: rgba(0, 119, 181, 0.1); transition: background 0.3s;">in</a>
+          </div>
+        </div>
 
         <!-- Buttons -->
-        <div class="card-actions">
-          <a href="/posts/<%= post._id %>/edit" class="card-btn edit"
-            >✏️ Edit</a
-          >
+        <div class="card-actions" style="display: flex; justify-content: center; gap: 15px;">
+          <a href="/posts/<%= post._id %>/edit" class="card-btn edit" style="padding: 12px 20px; border-radius: 8px; font-weight: 600; background: #3498db; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); transition: background 0.3s;">
+            ✏️ Edit
+          </a>
           <form
             action="/posts/<%= post._id %>?_method=DELETE"
             method="POST"
             style="display: inline"
           >
-            <button type="submit" class="card-btn delete">🗑️ Delete</button>
+            <button type="submit" class="card-btn delete" style="padding: 12px 20px; border-radius: 8px; font-weight: 600; background: #e74c3c; color: white; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); transition: background 0.3s;">
+              🗑️ Delete
+            </button>
           </form>
         </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar" style="flex: 1; background: #f8f9fa; padding: 20px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1);">
+        <h3 style="color: #2c3e50; margin-bottom: 20px;">Other Blog Posts</h3>
+        <ul style="list-style: none; padding: 0;">
+          <% otherPosts.forEach(otherPost => { %>
+          <li style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+            <a href="/posts/<%= otherPost._id %>/views" style="text-decoration: none; color: #2c3e50; font-weight: 500;">
+              <%= otherPost.title %>
+            </a>
+            <p style="font-size: 0.9rem; color: #777; margin: 5px 0 0 0;">By <%= otherPost.author %></p>
+          </li>
+          <% }); %>
+        </ul>
       </div>
     </div>
   </body>

@@ -51,7 +51,8 @@ app.get("/posts", async (req, res) => {
 app.get('/posts/:id/views', async (req, res) => {
     let {id} = req.params;
     const post = await Post.findById(id);
-    res.render("view.ejs", {post});
+    const otherPosts = await Post.find({_id: {$ne: id}}).limit(5);
+    res.render("view.ejs", {post, otherPosts});
 });
 
 //new post route
