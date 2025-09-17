@@ -215,7 +215,7 @@ body {
 
 /* Container */
 .container {
-  padding: 0 30px;
+  padding: 60px 0px;
   border-radius: 12px;
 }
 
@@ -382,7 +382,7 @@ form button:hover {
 
 /* Increase card width by 20px */
 .card {
-  width: calc(100% + 20px);
+  width: calc(95% + 10px);
   margin-left: -10px;
   margin-right: -10px;
 }
@@ -424,7 +424,7 @@ form button:hover {
 .about-content {
   width: 1200px;
   margin: auto;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 }
 
 .about-content h1 {
@@ -680,17 +680,11 @@ form button:hover {
 
 .community-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
   color: white;
 }
 
 .community-section h2 .material-symbols-outlined {
-  color: #2c3e50;
+  color: #ffffff;
   font-size: 3rem;
 }
 
@@ -712,11 +706,12 @@ form button:hover {
 }
 
 .btn {
-  padding: 10px 25px;
+  padding: 10px 16px;
   width: 150px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-size: 50px;
+  font-size: 18px;
+  font-weight: 650;
 }
 
 .btn-primary {
@@ -732,7 +727,7 @@ form button:hover {
 
 .btn-secondary {
   background: #95a5a6;
-  color: white;
+  color: #2c3e50;;
 }
 
 .btn-secondary:hover {
@@ -748,6 +743,10 @@ form button:hover {
   gap: 40px;
   margin: 30px auto;
   padding: 20px;
+  width: 1200px;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
 }
 
 .contact-image {
