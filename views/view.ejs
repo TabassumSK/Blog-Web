@@ -118,9 +118,13 @@
           class="card-actions"
           style="display: flex; justify-content: center; gap: 15px"
         >
-          <a href="/posts/<%= post._id %>/edit" class="card-btn edit">
-            ✏️ Edit
-          </a>
+          <form
+            action="/posts/<%= post._id %>/edit"
+            method="get"
+            style="display: inline"
+          >
+            <button type="submit" class="card-btn edit">✏️ Edit</button>
+          </form>
           <form
             action="/posts/<%= post._id %>?_method=DELETE"
             method="POST"
