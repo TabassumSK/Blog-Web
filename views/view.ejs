@@ -123,56 +123,17 @@
             method="get"
             style="display: inline"
           >
-            <button type="submit" class="card-btn edit">✏️ Edit</button>
+            <button type="submit" class="card-btn edit">Edit</button>
           </form>
           <form
             action="/posts/<%= post._id %>?_method=DELETE"
             method="POST"
             style="display: inline"
           >
-            <button type="submit" class="card-btn delete">🗑️ Delete</button>
+            <button type="submit" class="card-btn delete">Delete</button>
           </form>
         </div>
       </div>
-
-      <!-- Sidebar
-      <div
-        class="sidebar"
-        style="
-          flex: 1;
-          background: #f8f9fa;
-          padding: 20px;
-          border-radius: 15px;
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        "
-      >
-        <img
-          src="/images/view-sidebar.avif"
-          style="height: 100vh; width: 100%"
-        />
-        <h3 style="color: #2c3e50; margin-bottom: 20px">Other Blog Posts</h3>
-        <ul style="list-style: none; padding: 0">
-          <% otherPosts.forEach(otherPost => { %>
-          <li
-            style="
-              margin-bottom: 15px;
-              border-bottom: 1px solid #ddd;
-              padding-bottom: 10px;
-            "
-          >
-            <a
-              href="/posts/<%= otherPost._id %>/views"
-              style="text-decoration: none; color: #2c3e50; font-weight: 500"
-            >
-              <%= otherPost.title %>
-            </a>
-            <p style="font-size: 0.9rem; color: #777; margin: 5px 0 0 0">
-              By <%= otherPost.author %>
-            </p>
-          </li>
-          <% }); %>
-        </ul>
-      </div> -->
 
       <!-- Sidebar -->
       <div
