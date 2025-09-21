@@ -47,6 +47,25 @@ app.get("/posts", async (req, res) => {
     res.render('home.ejs', {posts});
 });
 
+//search route
+app.get("/posts/search", async (req, res) => {
+    const { q } = req.query;
+    let posts = [];
+
+    if (q && q.trim()) {
+        // Search in title and content using regex (case-insensitive)
+        posts = await Post.find({
+            $or: [
+                { title: { $regex: q, $options: 'i' } },
+                { content: { $regex: q, $options: 'i' } },
+                { author: { $regex: q, $options: 'i' } }
+            ]
+        }).sort({ date: -1 }); // Sort by newest first
+    }
+
+    res.render('search.ejs', { posts, searchQuery: q });
+});
+
 //view page
 app.get('/posts/:id/views', async (req, res) => {
     let {id} = req.params;

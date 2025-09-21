@@ -27,6 +27,19 @@
             <a class="nav-link" href="/contact">Contact</a>
           </li>
         </ul>
+        <!-- Search Form in Navbar -->
+        <form action="/posts/search" method="GET" class="d-flex ms-3">
+          <input
+            type="text"
+            name="q"
+            class="form-control"
+            placeholder="Search posts..."
+            style="width: 200px"
+          />
+          <button type="submit" class="btn btn-outline-light ms-2">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
       </div>
     </nav>
 
@@ -43,6 +56,33 @@
           Discover amazing stories, insights, and inspiration from around the
           world.
         </p>
+
+        <!-- Search Form in Hero Section -->
+        <div class="hero-search mb-4">
+          <form
+            action="/posts/search"
+            method="GET"
+            class="d-flex justify-content-center"
+          >
+            <div class="input-group" style="max-width: 500px">
+              <input
+                type="text"
+                name="q"
+                class="form-control form-control-lg"
+                placeholder="Search for posts, topics, or authors..."
+                style="border-radius: 25px 0 0 25px"
+              />
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="border-radius: 0 25px 25px 0"
+              >
+                <span class="material-symbols-outlined">search</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
         <a href="/posts/new" class="btn btn-light">Start Writing</a>
       </div>
     </div>
@@ -52,7 +92,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-5">
         <% posts.forEach(post => { %>
         <div class="col">
-          <div class="card h-100 ">
+          <div class="card h-100">
             <% if (post.image) { %>
             <img
               src="<%= post.image %>"
