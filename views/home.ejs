@@ -95,7 +95,7 @@
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"><%= post.title %></h5>
               <p class="card-text flex-grow-1">
-                <%= post.content.substring(0, 100) %>...
+                <%= post.content.substring(0, 100).replace(/\n/g, '<br>') %>...
               </p>
               <a
                 href="/posts/<%= post._id %>/views"
