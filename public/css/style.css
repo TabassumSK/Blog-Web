@@ -877,7 +877,14 @@ form button:hover {
   background-color: #1a252f;
 }
 
-
+.card-text {
+  display: flex;
+  justify-content: right;
+  font-size: 20px;
+  font-weight: 500;
+  color: #2c3e50;
+  padding: 5px;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
