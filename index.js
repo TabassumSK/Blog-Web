@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const Post = require('./models/database.js');
+const Contact = require('./models/contact.js');
 const port = 1080;
 const methodOverride = require('method-override');
 
@@ -115,7 +116,20 @@ app.get("/contact", (req, res) => {
 //about
 app.get("/about", (req, res) => {
     res.render("about");
-})
+});
+
+//contact saved
+app.post("/posts/contact", async(req, res) => {
+    try {
+        const contact = new Contact(req.body);
+        await contact.save();
+        console.log(contact);
+        res.redirect("/posts");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error saving contact message");
+    }
+});
 
 app.listen(1080, () => {
     console.log(`Server are listening at ${port}`);
