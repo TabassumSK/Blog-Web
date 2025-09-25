@@ -1,2 +1,16 @@
 - [x] Create models/contact.js with Contact schema
 - [x] Update index.js to import Contact and save in /posts/contact route
+- [ ] Remove unused CSS selectors from public/css/style.css
+  - [x] Remove header and header h1 styles
+  - [x] Remove .btn-create styles
+  - [x] Remove .post-card styles
+  - [x] Remove .meta, .preview, .actions .btn styles
+  - [x] Remove .empty style
+  - [ ] Remove .post styles
+  - [ ] Remove .post-image and .author styles
+  - [ ] Remove .posts-grid style
+  - [ ] Remove .blog-hero styles
+  - [ ] Remove .blog-content .author style
+  - [ ] Remove .offerings-grid and .offering-item styles
+  - [ ] Remove .story-stats and .stat styles
+  - [ ] Remove .community-section and .community-actions styles
