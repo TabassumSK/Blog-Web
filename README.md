@@ -1,7 +1,7 @@
 # ✍️ Blog Website  
 
 A **full-stack blog application** built with **Node.js, Express.js, and MongoDB**.  
-It allows users to create, read, update, and delete blog posts, with **search functionality**, a **contact form**, and a **clean, responsive UI**.  
+It allows users to create, read, update, and delete blog posts, with **search functionality**, a **contact form**, **clean, responsive UI** and **ai sumarization**.  
 
 This project demonstrates ability to build **end-to-end web applications** using modern technologies.  
 
