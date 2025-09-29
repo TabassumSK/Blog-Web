@@ -1,17 +1,5 @@
-nha- [x] Create models/contact.js with Contact schema
-- [x] Update index.js to import Contact and save in /posts/contact route
-- [x] Remove unused CSS selectors from public/css/style.css
-  - [x] Remove header and header h1 styles
-  - [x] Remove .btn-create styles
-  - [x] Remove .post-card styles
-  - [x] Remove .meta, .preview, .actions .btn styles
-  - [x] Remove .empty style
-  - [x] Remove .post styles
-  - [x] Remove .post-image and .author styles
-  - [x] Remove .posts-grid style
-  - [x] Remove .blog-hero styles
-  - [x] Remove .blog-content .author style
-  - [x] Remove .offerings-grid and .offering-item styles
-  - [x] Remove .story-stats and .stat styles
-  - [x] Remove .community-section and .community-actions styles
-- [x] Restore about page styles: .offerings-grid, .offering-item, .story-stats, .stat, .community-section, .community-actions
+- Update package.json: remove openai dependency, add @google/generative-ai ✓
+- Update index.js: replace OpenAI initialization and API call with Gemini ✓
+- Install new dependency ✓
+- Update environment variable to GEMINI_API_KEY (user needs to do this)
+- Test the summary generation (fixed model name to gemini-pro)
