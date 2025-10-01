@@ -71,35 +71,39 @@ app.get("/posts/search", async (req, res) => {
 });
 
 //view page
-app.get("/posts/:id/views", async (req, res) => {
-  let { id } = req.params;
-  const post = await Post.findById(id);
-  const otherPosts = await Post.find({ _id: { $ne: id } }).limit(5);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  let summary = null;
-  try {
-    console.log(
-      "API Key loaded:",
-      process.env.GEMINI_API_KEY ? "Yes (masked)" : "No"
-    );
-    // Generate summary using Gemini
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent(
-      `Summarize this blog post in 2-3 sentences: ${post.content.substring(
-        0,
-        1000
-      )}`
-    );
-    console.log(result.response);
-    summary = result.response.text();
-    console.log("Summary generated successfully");
-  } catch (error) {
-    console.error("Error generating summary:", error.message);
-    // Summary will be null, and the view will handle it
-  }
+const result = await model.generateContent([
+  {
+    role: "user",
+    parts: [
+      {
+        text: `Summarize this blog post in 2-3 sentences: ${post.content.substring(
+          0,
+          1000
+        )}`,
+      },
+    ],
+  },
+]);
 
-  res.render("view.ejs", { post, otherPosts, summary });
-});
+const summary =
+  result.response.text() ||
+  result.response.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Summary not available";
+
+async function listModels() {
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1/models?key=${process.env.GEMINI_API_KEY}`
+  );
+  const data = await res.json();
+  console.log(
+    "Available models:",
+    data.models.map((m) => m.name)
+  );
+}
+
+listModels();
 
 //new post route
 app.get("/posts/new", (req, res) => {
