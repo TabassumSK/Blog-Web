@@ -1,1 +1,5 @@
-/nodemodule
+# dependencies
+/node_modules
+
+# Secret
+.env
