@@ -1,5 +1,0 @@
-- Update package.json: remove openai dependency, add @google/generative-ai ✓
-- Update index.js: replace OpenAI initialization and API call with Gemini ✓
-- Install new dependency ✓
-- Update environment variable to GEMINI_API_KEY (user needs to do this)
-- Test the summary generation (fixed model name to gemini-pro)

@@ -70,27 +70,46 @@ app.get("/posts/search", async (req, res) => {
   res.render("search.ejs", { posts, searchQuery: q });
 });
 
-//view page
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// single post view route
+app.get("/posts/:id/views", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const post = await Post.findById(id);
 
-const result = await model.generateContent([
-  {
-    role: "user",
-    parts: [
-      {
-        text: `Summarize this blog post in 2-3 sentences: ${post.content.substring(
+    if (!post) {
+      return res.status(404).send("Post not found");
+    }
+
+    // fetch other posts (for sidebar)
+    const otherPosts = await Post.find({ _id: { $ne: id } }).limit(5);
+
+    // AI Summary
+    let summary = "";
+    try {
+      const model = genAI.getGenerativeModel({
+        model: "models/gemini-2.5-flash",
+      });
+
+      const result = await model.generateContent(
+        `Summarize this blog post in 2-3 sentences: ${post.content.substring(
           0,
           1000
-        )}`,
-      },
-    ],
-  },
-]);
+        )}`
+      );
 
-const summary =
-  result.response.text() ||
-  result.response.candidates?.[0]?.content?.parts?.[0]?.text ||
-  "Summary not available";
+      summary = result.response.text() || "Summary not available";
+      
+    } catch (error) {
+      console.error("AI Summary error:", error);
+      summary = "AI summary could not be generated.";
+    }
+
+    res.render("view.ejs", { post, otherPosts, summary });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading post");
+  }
+});
 
 async function listModels() {
   const res = await fetch(
