@@ -1,53 +1,53 @@
-# ✍️ Blog Website  
+# ✍️ Blog Website
 
 A **full-stack blog application** built with **Node.js, Express.js, and MongoDB**.  
-It allows users to create, read, update, and delete blog posts, with **search functionality**, a **contact form**, **clean, responsive UI** and **ai sumarization**.  
+It allows users to create, read, update, and delete blog posts, with **search functionality**, a **contact form**, **clean, responsive UI** and **ai sumarization**.
 
-This project demonstrates ability to build **end-to-end web applications** using modern technologies.  
-
----
-
-## ✨ Features  
-
-- 📝 **CRUD Operations**: Create, view, edit, and delete blog posts  
-- 🔍 **Search**: Find posts by title, author, or keywords  
-- 📬 **Contact Form**: Users can send inquiries directly  
-- 📱 **Responsive UI**: Works smoothly across devices  
-- 💾 **MongoDB Integration**: Reliable and persistent data storage  
+This project demonstrates ability to build **end-to-end web applications** using modern technologies.
 
 ---
 
-## 🛠 Tech Stack  
+## ✨ Features
 
-- **Backend**: Node.js, Express.js  
-- **Database**: MongoDB + Mongoose  
-- **Frontend**: EJS, CSS  
-- **Other**: Method Override for RESTful routing  
+- 📝 **CRUD Operations**: Create, view, edit, and delete blog posts
+- 🔍 **Search**: Find posts by title, author, or keywords
+- 📬 **Contact Form**: Users can send inquiries directly
+- 📱 **Responsive UI**: Works smoothly across devices
+- 💾 **MongoDB Integration**: Reliable and persistent data storage
 
 ---
 
-## 📸 Screenshots  
+## 🛠 Tech Stack
 
-Add screenshots inside a `screenshots/` folder and update the links below.  
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB + Mongoose
+- **Frontend**: EJS, CSS
+- **Other**: Method Override for RESTful routing
+
+---
+
+## 📸 Screenshots
+
+Add screenshots inside a `screenshots/` folder and update the links below.
 
 - **Home Page (All Posts)**  
-  ![Home Page](/images/home-page.png)  
+  ![Home Page](/public/images/home-page.png)
 
 - **Create New Post**  
-  ![New Post](/images/new-post.png)  
+  ![New Post](/public/images/new-post.png)
 
 - **View Post**  
-  ![Post View](/images/post-view.png)  
+  ![Post View](/public/images/post-view.png)
 
 - **Search Results**  
-  ![Search](/images/search.png)  
+  ![Search](/public/images/search.png)
 
 - **Contact Form**  
-  ![Contact](/images/contact.png)  
+  ![Contact](/public/images/contact.png)
 
 ---
 
-## ⚡ Quick Start  
+## ⚡ Quick Start
 
 ```bash
 # Clone repo
@@ -61,3 +61,4 @@ npm install
 
 # Start app
 npm start
+```
