@@ -45,23 +45,34 @@
                 value="<%= searchQuery || '' %>"
                 required
               />
-              <button type="submit" class="btn btn-primary">
-                <span class="material-symbols-outlined">search</span>
+              <button
+                type="submit"
+                style="
+                  background: #2c3e50;
+                  color: white;
+                  padding: 4px;
+                  width: 120px;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                  font-size: 21px;
+                  font-weight: 500;
+                  margin: 7px 0px 2px 0px;
+                "
+              >
+                search
               </button>
             </form>
           </div>
 
           <!-- Search Results -->
           <% if (searchQuery) { %>
-            <div class="search-info mb-4">
-              <p class="text-muted">
-                <% if (posts.length > 0) { %>
-                  Found <%= posts.length %> result<%= posts.length !== 1 ? 's' : '' %> for "<%= searchQuery %>"
-                <% } else { %>
-                  No results found for "<%= searchQuery %>"
-                <% } %>
-              </p>
-            </div>
+          <div class="search-info mb-4">
+            <p class="text-muted">
+              <% if (posts.length > 0) { %> Found <%= posts.length %> result<%=
+              posts.length !== 1 ? 's' : '' %> for "<%= searchQuery %>" <% }
+              else { %> No results found for "<%= searchQuery %>" <% } %>
+            </p>
+          </div>
           <% } %>
 
           <!-- Results Grid -->
@@ -82,7 +93,8 @@
                     By <%= post.author %>
                   </p>
                   <p class="card-text flex-grow-1">
-                    <%= post.content.substring(0, 150).replace(/\n/g, '<br>') %>...
+                    <%= post.content.substring(0, 150).replace(/\n/g, '<br />')
+                    %>...
                   </p>
                   <a
                     href="/posts/<%= post._id %>/views"
@@ -99,10 +111,16 @@
           <% if (posts.length === 0 && searchQuery) { %>
           <div class="no-results text-center mt-5">
             <div class="no-results-icon mb-3">
-              <span class="material-symbols-outlined" style="font-size: 4rem; color: #ddd;">search</span>
+              <span
+                class="material-symbols-outlined"
+                style="font-size: 4rem; color: #ddd"
+                >search</span
+              >
             </div>
             <h3>No posts found</h3>
-            <p class="text-muted">Try adjusting your search terms or browse all posts</p>
+            <p class="text-muted">
+              Try adjusting your search terms or browse all posts
+            </p>
             <a href="/posts" class="btn btn-outline-primary">View All Posts</a>
           </div>
           <% } %>
@@ -110,7 +128,9 @@
           <!-- Back to Home -->
           <% if (posts.length > 0) { %>
           <div class="text-center mt-5">
-            <a href="/posts" class="btn btn-outline-secondary">← Back to All Posts</a>
+            <a href="/posts" class="btn btn-outline-secondary"
+              >← Back to All Posts</a
+            >
           </div>
           <% } %>
         </div>

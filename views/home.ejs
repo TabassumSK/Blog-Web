@@ -39,7 +39,7 @@
           action="/posts/search"
           method="GET"
           class="d-flex"
-          style="margin: auto"
+          style="margin-left: 800px"
         >
           <input
             type="text"
@@ -95,7 +95,8 @@
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"><%= post.title %></h5>
               <p class="card-text flex-grow-1">
-                <%= post.content.substring(0, 100).replace(/\n/g, '<br>') %>...
+                <%= post.content.substring(0, 100).replace(/\n/g, '<br />')
+                %>...
               </p>
               <a
                 href="/posts/<%= post._id %>/views"

@@ -37,7 +37,8 @@ Add screenshots inside a `screenshots/` folder and update the links below.
   ![New Post](/public/images/new-post.png)
 
 - **View Post**  
-  ![Post View](/public/images/post-view.png)
+  ![Post View](/public/images/post-view1.png)
+  ![](/public/images/post-view2.png)
 
 - **Search Results**  
   ![Search](/public/images/search.png)
