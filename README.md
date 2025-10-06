@@ -30,15 +30,22 @@ This project demonstrates ability to build **end-to-end web applications** using
 
 Add screenshots inside a `screenshots/` folder and update the links below.
 
-- **Home Page (All Posts)**  
+- **Home Page**  
   ![Home Page](/public/images/home-page.png)
+
+- **Home Posts (All Posts)**  
+  ![Home Post Page](/public/images/home-posts.png)
+
+- **About Page**  
+  ![New Post](/public/images/about1.png)
+  ![New Post](/public/images/about2.png)
 
 - **Create New Post**  
   ![New Post](/public/images/new-post.png)
 
 - **View Post**  
-  ![Post View](/public/images/post-view1.png)
-  ![](/public/images/post-view2.png)
+  ![View Post](/public/images/post-view1.png)
+  ![View Post - AI Summarize](/public/images/post-view2.png)
 
 - **Search Results**  
   ![Search](/public/images/search.png)
