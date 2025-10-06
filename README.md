@@ -28,8 +28,6 @@ This project demonstrates ability to build **end-to-end web applications** using
 
 ## 📸 Screenshots
 
-Add screenshots inside a `screenshots/` folder and update the links below.
-
 - **Home Page**  
   ![Home Page](/public/images/home-page.png)
 
