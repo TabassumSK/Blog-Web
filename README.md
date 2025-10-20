@@ -43,6 +43,7 @@ This project demonstrates ability to build **end-to-end web applications** using
 
 - **View Post**  
   ![View Post](/public/images/post-view1.png)
+- **AI Generated Summary** 
   ![View Post - AI Summarize](/public/images/post-view2.png)
 
 - **Search Results**  
