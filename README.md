@@ -11,6 +11,7 @@ This project demonstrates ability to build **end-to-end web applications** using
 
 - 📝 **CRUD Operations**: Create, view, edit, and delete blog posts
 - 🔍 **Search**: Find posts by title, author, or keywords
+- 🤖 AI Summaries: Auto-generate concise summaries (google/generative-ai)
 - 📬 **Contact Form**: Users can send inquiries directly
 - 📱 **Responsive UI**: Works smoothly across devices
 - 💾 **MongoDB Integration**: Reliable and persistent data storage
