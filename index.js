@@ -7,7 +7,7 @@ const app = express();
 const path = require("path");
 const Post = require("./models/database.js");
 const Contact = require("./models/contact.js");
-const port = 1080;
+const PORT = process.env.PORT || 3000;
 const methodOverride = require("method-override");
 
 app.set("view engine", "ejs");
@@ -17,6 +17,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
 //database connection
+const DB_URL = process.env.MONGODB_URL;
 const mongoose = require("mongoose");
 main()
   .then(() => {
@@ -27,7 +28,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/BlogWeb");
+  await mongoose.connect(DB_URL);
 }
 
 app.get("/", (req, res) => {
@@ -98,7 +99,6 @@ app.get("/posts/:id/views", async (req, res) => {
       );
 
       summary = result.response.text() || "Summary not available";
-      
     } catch (error) {
       console.error("AI Summary error:", error);
       summary = "AI summary could not be generated.";
@@ -180,6 +180,6 @@ app.post("/posts/contact", async (req, res) => {
   }
 });
 
-app.listen(1080, () => {
-  console.log(`Server are listening at ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

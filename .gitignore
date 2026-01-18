@@ -1,5 +1,7 @@
 # dependencies
 /node_modules
 
-# Secret
-.env
+# Environment variables
+/.env
+
+/package-lock.json
