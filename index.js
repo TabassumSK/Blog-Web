@@ -33,8 +33,9 @@ async function main() {
 }
 
 app.get("/", (req, res) => {
-  res.send("server working");
+  res.redirect("/posts");
 });
+
 
 //1st data insert
 app.get("/1stPost", async (req, res) => {
