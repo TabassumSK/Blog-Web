@@ -16,8 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-//database connection
-const DB_URL = process.env.MONGODB_URL;
+const dbUrl = process.env.ATLASDB_URL;
+
+// database connection
 const mongoose = require("mongoose");
 main()
   .then(() => {
@@ -28,7 +29,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(DB_URL);
+  await mongoose.connect(dbUrl);
 }
 
 app.get("/", (req, res) => {
@@ -94,8 +95,8 @@ app.get("/posts/:id/views", async (req, res) => {
       const result = await model.generateContent(
         `Summarize this blog post in 2-3 sentences: ${post.content.substring(
           0,
-          1000
-        )}`
+          1000,
+        )}`,
       );
 
       summary = result.response.text() || "Summary not available";
@@ -113,12 +114,12 @@ app.get("/posts/:id/views", async (req, res) => {
 
 async function listModels() {
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1/models?key=${process.env.GEMINI_API_KEY}`
+    `https://generativelanguage.googleapis.com/v1/models?key=${process.env.GEMINI_API_KEY}`,
   );
   const data = await res.json();
   console.log(
     "Available models:",
-    data.models.map((m) => m.name)
+    data.models.map((m) => m.name),
   );
 }
 
